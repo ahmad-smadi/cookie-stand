@@ -1,3 +1,38 @@
-#salesTable {
-    margin: 5px;
-}
+* {
+    box-sizing: border-box;
+  }
+
+header a {
+    
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #3B14A7;
+        padding: 35px 15px;
+        float: right;
+        border-top: 10px;
+        margin: 3px;
+  }
+
+  header img {
+    width: 100px;
+  }
+  body {
+    display: grid;
+    grid-template-rows: 100px 1fr 50px;
+    gap: 20px;
+    width: 960px;
+    margin: 0 auto;
+    background: #FFED99;
+  }
+
+  table {
+      width: 100%;
+      padding: 5px;
+      text-align: center;
+      margin: 20px;
+      font-size: 25px;
+      border: 5px solid #4AA96C;
+      row-gap: 3px solid #4AA96C;
+      
+
+  }
