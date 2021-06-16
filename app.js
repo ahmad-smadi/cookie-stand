@@ -4,6 +4,7 @@
 const hours = ['6am', '7am','8am','9am','10am','11am','12pm','1pm','2pm','3pm','4pm','5pm','6pm','7pm'];
 
 let parentElement = document.getElementById('salesData');
+let newCityForm = document.getElementById('newCityForm');
 
 function CookieStand(name, min, max, avg) {
     this.name = name;
@@ -120,72 +121,10 @@ function CookieStand(name, min, max, avg) {
   }
   
   
-  function getRandomCustomer(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) + min); 
-  }
+   function getRandomCustomer(min, max) {
+     return Math.floor(Math.random() * (max - min + 1) + min); 
+   }
 
-'use strict'
-
-let data = document.getElementById('salmonCookies')
-let seattle = {
-    cookieList : [],
-    min: 23,
-    cityName: 'Seattle',
-    max: 65,
-    avg: 6.3,
-    
-    getCookieNumber: function () {
-        return Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
-      }
-}
-
-let tokyo = {
-    cookieList : [],
-    min: 3,
-    cityName: 'Tokyo',
-    max: 24,
-    avg: 1.2,
-
-    getCookieNumber: function () {
-        return Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
-      }
-}
-
-let dubai = {
-    cookieList : [],
-    min: 11,
-    cityName: 'Dubai',
-    max: 38,
-    avg: 3.7,
-    
-    getCookieNumber: function () {
-        return Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
-      }
-}
-
-let paris = {
-    min: 20,
-    cityName: 'Paris',
-    max: 38,
-    avg: 2.3,
-    
-    getCookieNumber: function () {
-        return Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
-      },
-    cookieList : []
-}
-
-let lima = {
-    min: 2,
-    cityName: 'Lima',
-    max: 16,
-    avg: 4.6,
-    
-    getCookieNumber: function () {
-        return Math.floor((Math.random() * (this.max - this.min) + this.min)*this.avg);
-      },
-    cookieList : [],
-}
 
 function addTheCookieCity (city) {
     let cookie;
@@ -204,8 +143,8 @@ function addTheCookieCity (city) {
        
         for (let j = 6; j < 21 ; j++) {
             
-            hourlyCookie = document.createElement('li')
-            totalCookie = document.createElement('li')
+            hourlyCookie = document.createElement('li');
+            totalCookie = document.createElement('li');
             randomCookie = city[i].getCookieNumber();
             cookieSum+=randomCookie
             
@@ -230,5 +169,27 @@ function addTheCookieCity (city) {
 }
 
 let city = [seattle, tokyo, dubai, paris, lima];
-addTheCookieCity(city);
+//addTheCookieCity(city);
+
+function formSubmit (event){
+  event.preventDefault();
+  let newCetiyNmae = event.target.name.value;
+  let minCust = event.target.minCust.value;
+  let maxCust = event.target.maxCust.value;
+  let agvCookie = event.target.avgCust.value
+
+  let newCity = new CookieStand(newCetiyNmae , minCust , maxCust , agvCookie);
+  newCity.getCustomer();
+  newCity.render();
+  
+  
+}
+
+newCityForm.addEventListener('submit', formSubmit );
+
+function getRandomNumber(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
 

@@ -26,13 +26,21 @@ header a {
   }
 
   table {
-      width: 100%;
-      padding: 5px;
-      text-align: center;
-      margin: 20px;
-      font-size: 25px;
-      border: 5px solid #4AA96C;
-      row-gap: 3px solid #4AA96C;
+      border-collapse: collapse;
+      margin: 25px 0;
+      min-width: 400px;
+      font-size: 0.9cm;
+      font-weight: bold;
+      text-align: left;
       
 
+  }
+  table th {
+    background-color: #A3A847;
+    color: #343F56;
+    border: 1px solid black;
+  }
+  table td {
+    padding: 12px 15px ;
+    border: 1px solid black;
   }
