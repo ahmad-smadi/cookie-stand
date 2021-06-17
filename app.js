@@ -178,9 +178,13 @@ function formSubmit (event){
   let maxCust = event.target.maxCust.value;
   let agvCookie = event.target.avgCust.value
 
+  salesTable.deleteRow(-1);
+
   let newCity = new CookieStand(newCetiyNmae , minCust , maxCust , agvCookie);
   newCity.getCustomer();
   newCity.render();
+  makeTableFooter();
+  newCityForm.reset();
   
   
 }
